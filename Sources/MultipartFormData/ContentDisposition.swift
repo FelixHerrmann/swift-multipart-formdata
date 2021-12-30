@@ -64,7 +64,6 @@ extension ContentDisposition {
     
     /// Creates a new ``ContentDisposition`` object.
     ///
-    ///
     /// It is not possible to create a `StaticString` that can not be percent encoded.
     /// Therefore, unlike ``init(uncheckedName:uncheckedFilename:)``, this initializier can not throw an error.
     ///
