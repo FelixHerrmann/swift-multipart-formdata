@@ -7,6 +7,9 @@
 
 import XCTest
 @testable import MultipartFormData
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 final class URLRequestTests: XCTestCase {
     
