@@ -13,8 +13,12 @@ final class ContentDispositionTests: XCTestCase {
     func testPercentEncodingError() throws {
         XCTAssertNoThrow(try ContentDisposition(uncheckedName: "a", uncheckedFilename: "a"))
         
-        let nonPercentEncodableString = try XCTUnwrap(String(bytes: [0xD8, 0x00] as [UInt8], encoding: .utf16BigEndian)) // https://stackoverflow.com/questions/33558933/why-is-the-return-value-of-string-addingpercentencoding-optional
-        XCTAssertThrowsError(try ContentDisposition(uncheckedName: nonPercentEncodableString, uncheckedFilename: nonPercentEncodableString))
+        // https://stackoverflow.com/questions/33558933/why-is-the-return-value-of-string-addingpercentencoding-optional
+        // does not work on Linux, can still encoding there
+        let nonPercentEncodableString = try XCTUnwrap(String(bytes: [0xD8, 0x00] as [UInt8], encoding: .utf16BigEndian))
+        if nonPercentEncodableString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) == nil {
+            XCTAssertThrowsError(try ContentDisposition(uncheckedName: nonPercentEncodableString, uncheckedFilename: nonPercentEncodableString))
+        }
     }
     
     func testParameters() throws {
