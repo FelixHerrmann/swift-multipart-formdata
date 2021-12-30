@@ -44,7 +44,7 @@ import Foundation
 ///
 ///     if FileManager.default.fileExists(atPath: fileDirectory.path) {
 ///         try Subpart {
-///             ContentDisposition(name: "field3", filename: filename)
+///             try ContentDisposition(uncheckedName: "field3", uncheckedFilename: filename)
 ///             ContentType(mediaType: .applicationOctetStream)
 ///         } body: {
 ///             try Data(contentsOf: fileDirectory)
