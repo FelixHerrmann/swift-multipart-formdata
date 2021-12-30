@@ -25,7 +25,7 @@ public struct Subpart: Hashable {
     
     /// Creates a new ``Subpart`` object manually.
     ///
-    /// There is also ``init(@HTTPHeaderBuilder:@BodyDataBuilder:)`` which is more convenient to use.
+    /// There is also ``init(header:body:)`` which is more convenient to use.
     ///
     /// - Parameters:
     ///   - contentDisposition: The content disposition of the subpart.
@@ -52,8 +52,8 @@ extension Subpart {
     /// It can be a single data instance but also accepts multiple (they will be combined to a single one).
     ///
     /// ```swift
-    /// try Subpart {
-    ///     try ContentDisposition(name: "id")
+    /// Subpart {
+    ///     ContentDisposition(name: "id")
     ///     ContentType(mediaType: .textPlain)
     /// } body: {
     ///     Data("1234".utf8)

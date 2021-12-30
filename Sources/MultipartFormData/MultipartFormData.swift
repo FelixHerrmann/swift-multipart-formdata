@@ -14,7 +14,7 @@ import Foundation
 ///
 /// There are two ways to create a ``MultipartFormData``:
 /// - manually with ``init(boundary:body:)``
-/// - via result builder with ``init(boundary:@MultipartFormDataBuilder:)``
+/// - via result builder with ``init(boundary:builder:)``
 ///
 /// The ``boundary`` can be created manually but using a randomly generated one is fine in most situations.
 ///
@@ -96,7 +96,7 @@ public struct MultipartFormData: Hashable {
     
     /// Creates a new ``MultipartFormData`` object manually.
     ///
-    /// There is also ``init(boundary:@MultipartFormDataBuilder:)`` which is more convenient to use.
+    /// There is also ``init(boundary:builder:)`` which is more convenient to use.
     ///
     /// - Parameters:
     ///   - boundary: The boundary for the multipart/form-data. By default it generates a random one.
