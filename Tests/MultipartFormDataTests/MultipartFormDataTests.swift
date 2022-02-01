@@ -39,7 +39,7 @@ final class MultipartFormDataTests: XCTestCase {
             "Content-Type: application/octet-stream",
             "",
             "",
-            "--test--"
+            "--test--\r\n"
         ].joined(separator: "\r\n").utf8)
         XCTAssertEqual(multipartFormData.httpBody, expectedBody)
     }
@@ -69,7 +69,7 @@ final class MultipartFormDataTests: XCTestCase {
             "Content-Type: application/octet-stream",
             "",
             "",
-            "--test--"
+            "--test--\r\n"
         ].joined(separator: "\r\n")
         XCTAssertEqual(multipartFormData.debugDescription, expectedDescription)
     }

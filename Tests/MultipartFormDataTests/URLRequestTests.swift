@@ -28,7 +28,7 @@ final class URLRequestTests: XCTestCase {
             "Content-Disposition: form-data; name=\"a\"",
             "",
             "",
-            "--test--",
+            "--test--\r\n",
         ].joined(separator: "\r\n").utf8)
         XCTAssertEqual(request.httpBody, expectedBody)
     }
