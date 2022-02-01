@@ -120,7 +120,7 @@ extension MultipartFormData {
         let bodyData = body
             .map { ._dash + boundary._asciiData + ._crlf + $0._data + ._crlf }
             .reduce(Data(), +)
-        return bodyData + ._dash + boundary._asciiData + ._dash
+        return bodyData + ._dash + boundary._asciiData + ._dash + ._crlf
     }
 }
 
