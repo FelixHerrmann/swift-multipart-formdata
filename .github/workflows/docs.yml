@@ -1,0 +1,36 @@
+name: Documentations
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-docs:
+    runs-on: macos-12
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set name in local git-config
+      run: git config --local user.name "runner"
+    - name: Setup git worktree
+      run: git worktree add --checkout gh-pages origin/gh-pages
+    - name: Generate/update /gh-pages/docs
+      run: make DOCUMENTATION_PATH=./gh-pages/docs generate-documentation
+    - name: Push to gh-pages branch
+      run: |
+        CURRENT_COMMIT_HASH=`git rev-parse --short HEAD`
+        
+        cd gh-pages
+        git add docs
+        
+        if [ -n "$(git status --porcelain)" ]; then
+          git commit -m "Update GitHub Pages documentation site to '$CURRENT_COMMIT_HASH'."
+          git push origin HEAD:gh-pages
+        else
+          echo "No documentation changes found."
+        fi
+        
+        cd ..
+    - name: Clear git worktree
+      run: git worktree remove gh-pages
