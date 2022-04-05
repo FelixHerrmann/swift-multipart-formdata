@@ -18,7 +18,7 @@ jobs:
     - name: Generate/update /gh-pages/docs
       run: make DOCUMENTATION_PATH=./gh-pages/docs generate-documentation
     - name: Push to gh-pages branch:
-      run:
+      run: |
         CURRENT_COMMIT_HASH=`git rev-parse --short HEAD`
         
         cd gh-pages
