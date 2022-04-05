@@ -1,6 +1,6 @@
 DOCUMENTATION_PATH?=./docs
 TARGET=MultipartFormData
-HOSTING_PATH=swift-mulipart-formdata
+HOSTING_PATH=swift-multipart-formdata
 
 all: generate-documentation
 
