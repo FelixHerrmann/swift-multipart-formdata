@@ -29,7 +29,7 @@ Add the package to your project as shown [here](https://developer.apple.com/docu
 Download the files in the [Sources](/Sources) folder and drag them into you project.
 
 
-## Usage
+## Example
 
 ```swift
 import MultipartFormData
@@ -96,7 +96,12 @@ let (data, response) = try await URLSession.shared.data(for: request)
   ```
 </details>
 
-> For a detailed description read the code documentation.
+## Documentation
+
+For a detailed usage description, you can check out the [documentation](https://felixherrmann.github.io/swift-multipart-formdata/documentation/multipartformdata/).
+
+![docs](https://user-images.githubusercontent.com/42500484/161771010-453000e7-2359-47f5-af91-fdceb6052b1e.png#gh-light-mode-only)
+![docs](https://user-images.githubusercontent.com/42500484/161771424-bcf542e2-9bb9-4004-956b-51c41ce787da.png#gh-dark-mode-only)
 
 ## License
 
