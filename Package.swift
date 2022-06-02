@@ -3,22 +3,13 @@
 
 import PackageDescription
 
-#if swift(>=5.6) && os(macOS)
-let dependencies: [Package.Dependency] = [
-	.package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
-]
-#else
-let dependencies: [Package.Dependency] = []
-#endif
-
-let package = Package(
+var package = Package(
     name: "swift-multipart-formdata",
     products: [
         .library(
             name: "MultipartFormData",
             targets: ["MultipartFormData"]),
     ],
-	dependencies: dependencies,
     targets: [
         .target(
             name: "MultipartFormData",
@@ -28,3 +19,9 @@ let package = Package(
             dependencies: ["MultipartFormData"]),
     ]
 )
+
+#if swift(>=5.6)
+package.dependencies.append(
+    .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0")
+)
+#endif
