@@ -3,9 +3,6 @@
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FFelixHerrmann%2Fswift-multipart-formdata%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/FelixHerrmann/swift-multipart-formdata)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FFelixHerrmann%2Fswift-multipart-formdata%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/FelixHerrmann/swift-multipart-formdata)
 [![Swift](https://github.com/FelixHerrmann/swift-multipart-formdata/actions/workflows/swift.yml/badge.svg)](https://github.com/FelixHerrmann/swift-multipart-formdata/actions/workflows/swift.yml)
-[![Version](https://img.shields.io/github/v/release/FelixHerrmann/swift-multipart-formdata)](https://github.com/FelixHerrmann/swift-multipart-formdata/releases)
-[![License](https://img.shields.io/github/license/FelixHerrmann/swift-multipart-formdata)](https://github.com/FelixHerrmann/swift-multipart-formdata/blob/master/LICENSE)
-[![Tweet](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2FFelixHerrmann%2Fswift-multipart-formdata)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FFelixHerrmann%2Fswift-multipart-formdata)
 
 Build multipart/form-data type-safe in Swift. A result builder DSL is also available.
 
