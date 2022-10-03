@@ -95,7 +95,7 @@ let (data, response) = try await URLSession.shared.data(for: request)
 
 ## Documentation
 
-For a detailed usage description, you can check out the [documentation](https://swiftpackageindex.com/felixherrmann/swift-multipart-formdata/master/documentation/multipartformdata/multipartformdata).
+For a detailed usage description, you can check out the [documentation](https://swiftpackageindex.com/FelixHerrmann/swift-multipart-formdata/master/documentation/multipartformdata).
 
 ![docs](https://user-images.githubusercontent.com/42500484/193477691-ff5fa9a7-8a3e-48bd-aade-a853144ab05f.png#gh-light-mode-only)
 ![docs](https://user-images.githubusercontent.com/42500484/193477695-cebe2417-6311-4ef0-bbe3-2e5217a89ab9.png#gh-dark-mode-only)
