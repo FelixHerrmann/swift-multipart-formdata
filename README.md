@@ -1,7 +1,7 @@
 # MultipartFormData
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FFelixHerrmann%2Fswift-multipart-formdata%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/FelixHerrmann/swift-multipart-formdata)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FFelixHerrmann%2Fswift-multipart-formdata%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/FelixHerrmann/swift-multipart-formdata)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FFelixHerrmann%2Fswift-multipart-formdata%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/FelixHerrmann/swift-multipart-formdata)
 [![Swift](https://github.com/FelixHerrmann/swift-multipart-formdata/actions/workflows/swift.yml/badge.svg)](https://github.com/FelixHerrmann/swift-multipart-formdata/actions/workflows/swift.yml)
 
 Build multipart/form-data type-safe in Swift. A result builder DSL is also available.
