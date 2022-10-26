@@ -13,7 +13,7 @@ public struct ContentType: HTTPHeaderField {
     public static let name = "Content-Type"
     
     public var value: String {
-        return mediaType._text
+        mediaType._text
     }
     
     /// The media type (MIME type) of the content type.

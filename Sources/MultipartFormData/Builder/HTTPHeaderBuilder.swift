@@ -17,27 +17,27 @@
 public enum HTTPHeaderBuilder {
     
     public static func buildBlock(_ contentDisposition: ContentDisposition) -> BuildResult {
-        return BuildResult(_contentDisposition: contentDisposition, _contentType: nil)
+        BuildResult(_contentDisposition: contentDisposition, _contentType: nil)
     }
     
     public static func buildBlock(_ contentDisposition: ContentDisposition, _ contentType: ContentType) -> BuildResult {
-        return BuildResult(_contentDisposition: contentDisposition, _contentType: contentType)
+        BuildResult(_contentDisposition: contentDisposition, _contentType: contentType)
     }
     
     public static func buildBlock(_ contentType: ContentType, _ contentDisposition: ContentDisposition) -> BuildResult {
-        return BuildResult(_contentDisposition: contentDisposition, _contentType: contentType)
+        BuildResult(_contentDisposition: contentDisposition, _contentType: contentType)
     }
     
     public static func buildBlock(_ component: BuildResult) -> BuildResult {
-        return component
+        component
     }
     
     public static func buildEither(first component: BuildResult) -> BuildResult {
-        return component
+        component
     }
     
     public static func buildEither(second component: BuildResult) -> BuildResult {
-        return component
+        component
     }
 }
 

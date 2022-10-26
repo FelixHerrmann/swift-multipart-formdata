@@ -10,30 +10,30 @@
 public enum MultipartFormDataBuilder {
     
     public static func buildExpression(_ expression: Subpart) -> [Subpart] {
-        return [expression]
+        [expression]
     }
     
     public static func buildBlock(_ components: [Subpart]...) -> [Subpart] {
-        return components.flatMap { $0 }
+        components.flatMap { $0 }
     }
     
     public static func buildBlock(_ components: Subpart...) -> [Subpart] {
-        return components
+        components
     }
     
     public static func buildArray(_ components: [[Subpart]]) -> [Subpart] {
-        return components.flatMap { $0 }
+        components.flatMap { $0 }
     }
     
     public static func buildOptional(_ component: [Subpart]?) -> [Subpart] {
-        return component ?? []
+        component ?? []
     }
     
     public static func buildEither(first component: [Subpart]) -> [Subpart] {
-        return component
+        component
     }
     
     public static func buildEither(second component: [Subpart]) -> [Subpart] {
-        return component
+        component
     }
 }

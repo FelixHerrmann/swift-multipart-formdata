@@ -13,7 +13,7 @@ public struct ContentDisposition: HTTPHeaderField {
     public static let name = "Content-Disposition"
     
     public var value: String {
-        return "form-data"
+        "form-data"
     }
     
     public var parameters: [HTTPHeaderParameter]
@@ -31,7 +31,7 @@ extension ContentDisposition {
         public var initialValue: String
         
         public var debugDescription: String {
-            return "PercentEncodingError: \(initialValue) can not be percent-encoded!"
+            "PercentEncodingError: \(initialValue) can not be percent-encoded!"
         }
     }
     

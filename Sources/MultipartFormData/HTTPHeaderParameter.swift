@@ -30,7 +30,7 @@ public struct HTTPHeaderParameter: Hashable {
 extension HTTPHeaderParameter: CustomDebugStringConvertible {
     
     public var debugDescription: String {
-        return _text
+        _text
     }
 }
 
@@ -40,13 +40,13 @@ extension HTTPHeaderParameter: CustomDebugStringConvertible {
 extension HTTPHeaderParameter {
     
     internal var _text: String {
-        return "\(name)=\"\(value)\""
+        "\(name)=\"\(value)\""
     }
 }
 
 extension Array where Element == HTTPHeaderParameter {
     
     internal var _text: String {
-        return map(\._text).joined(separator: "; ")
+        map(\._text).joined(separator: "; ")
     }
 }

@@ -54,6 +54,6 @@ final class BodyDataBuilderTests: XCTestCase {
 extension BodyDataBuilderTests {
     
     private func _buildData(@BodyDataBuilder builder: () throws -> Data) rethrows -> Data {
-        return try builder()
+        try builder()
     }
 }

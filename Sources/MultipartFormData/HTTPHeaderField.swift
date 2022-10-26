@@ -30,7 +30,7 @@ public protocol HTTPHeaderField: Hashable, CustomDebugStringConvertible {
 extension HTTPHeaderField {
     
     public var debugDescription: String {
-        return _text
+        _text
     }
 }
 
@@ -48,10 +48,10 @@ extension HTTPHeaderField {
     }
     
     internal var _text: String {
-        return "\(Self.name): \(_value)"
+        "\(Self.name): \(_value)"
     }
     
     internal var _data: Data {
-        return Data(_text.utf8)
+        Data(_text.utf8)
     }
 }

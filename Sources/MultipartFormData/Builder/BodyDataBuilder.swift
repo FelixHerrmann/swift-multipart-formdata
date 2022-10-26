@@ -14,26 +14,26 @@ import Foundation
 public enum BodyDataBuilder {
     
     public static func buildExpression(_ expression: Data) -> Data {
-        return expression
+        expression
     }
     
     public static func buildBlock(_ components: Data...) -> Data {
-        return components.reduce(Data(), +)
+        components.reduce(Data(), +)
     }
     
     public static func buildArray(_ components: [Data]) -> Data {
-        return components.reduce(Data(), +)
+        components.reduce(Data(), +)
     }
     
     public static func buildOptional(_ component: Data?) -> Data {
-        return component ?? Data()
+        component ?? Data()
     }
     
     public static func buildEither(first component: Data) -> Data {
-        return component
+        component
     }
     
     public static func buildEither(second component: Data) -> Data {
-        return component
+        component
     }
 }

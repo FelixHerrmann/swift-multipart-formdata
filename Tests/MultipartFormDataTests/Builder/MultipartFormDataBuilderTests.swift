@@ -100,6 +100,6 @@ final class MultipartFormDataBuilderTests: XCTestCase {
 extension MultipartFormDataBuilderTests {
     
     private func _buildSubparts(@MultipartFormDataBuilder builder: () throws -> [Subpart]) rethrows -> [Subpart] {
-        return try builder()
+        try builder()
     }
 }

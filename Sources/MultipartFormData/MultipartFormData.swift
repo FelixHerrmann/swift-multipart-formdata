@@ -168,6 +168,6 @@ extension MultipartFormData {
 extension MultipartFormData: CustomDebugStringConvertible {
     
     public var debugDescription: String {
-        return String(decoding: contentType._data + ._crlf + ._crlf + httpBody, as: UTF8.self)
+        String(decoding: contentType._data + ._crlf + ._crlf + httpBody, as: UTF8.self)
     }
 }
