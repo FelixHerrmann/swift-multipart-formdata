@@ -16,8 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      - name: Build
-        run: swift build -v
+      - run: swift build -v
   
   test:
     name: Test
@@ -28,5 +27,4 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      - name: Build
-        run: swift test -v
+      - run: swift test -v
