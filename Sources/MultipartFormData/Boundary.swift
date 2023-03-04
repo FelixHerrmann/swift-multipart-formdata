@@ -68,7 +68,7 @@ extension Boundary {
         guard uncheckedBoundary.count <= Self.maxSize else {
             throw InvalidBoundaryError.tooLong
         }
-        guard !uncheckedBoundary.contains(where: { !$0.isASCII }), let asciiData = uncheckedBoundary.data(using: .ascii) else {
+        guard let asciiData = uncheckedBoundary.data(using: .ascii) else {
             throw InvalidBoundaryError.noASCII
         }
         self._asciiData = asciiData
