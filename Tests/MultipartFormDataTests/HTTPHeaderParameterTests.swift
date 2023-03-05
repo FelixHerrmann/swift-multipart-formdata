@@ -23,4 +23,11 @@ final class HTTPHeaderParameterTests: XCTestCase {
         ]
         XCTAssertEqual(parameters._text, "test=\"a\"; test=\"a\"; test=\"a\"")
     }
+    
+    func testDebugDescription() {
+        let parameter = HTTPHeaderParameter("test", value: "a")
+        
+        let expectedDescription = "test=\"a\""
+        XCTAssertEqual(parameter.debugDescription, expectedDescription)
+    }
 }

@@ -49,4 +49,11 @@ final class BoundaryTests: XCTestCase {
             XCTAssertEqual(asciiString, randomBoundary._value)
         }
     }
+    
+    func testDebugDescription() throws {
+        let boundary = try Boundary(uncheckedBoundary: "test")
+        
+        let expectedDescription = "test"
+        XCTAssertEqual(boundary.debugDescription, expectedDescription)
+    }
 }
