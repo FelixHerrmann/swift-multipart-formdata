@@ -24,21 +24,18 @@ public protocol HTTPHeaderField: Hashable, CustomDebugStringConvertible {
     var parameters: [HTTPHeaderParameter] { get set }
 }
 
-
 // MARK: - Debug
 
 extension HTTPHeaderField {
-    
+    /// A textual representation of this instance, suitable for debugging.
     public var debugDescription: String {
         return _text
     }
 }
 
-
 // MARK: - Helpers
 
 extension HTTPHeaderField {
-    
     internal var _value: String {
         if parameters.isEmpty {
             return value

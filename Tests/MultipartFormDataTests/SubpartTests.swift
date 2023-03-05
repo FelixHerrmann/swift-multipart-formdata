@@ -11,7 +11,11 @@ import XCTest
 final class SubpartTests: XCTestCase {
     
     func testDataGeneration() throws {
-        let subpart = Subpart(contentDisposition: ContentDisposition(name: "a"), contentType: ContentType(mediaType: .textPlain), body: Data("a".utf8))
+        let subpart = Subpart(
+            contentDisposition: ContentDisposition(name: "a"),
+            contentType: ContentType(mediaType: .textPlain),
+            body: Data("a".utf8)
+        )
         let expectedData = Data([
             "Content-Disposition: form-data; name=\"a\"",
             "Content-Type: text/plain",

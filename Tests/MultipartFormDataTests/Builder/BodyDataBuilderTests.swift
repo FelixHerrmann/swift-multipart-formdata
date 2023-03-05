@@ -31,8 +31,8 @@ final class BodyDataBuilderTests: XCTestCase {
         let data = _buildData {
             
             // buildArray
-            for i in 0...2 {
-                Data(i.description.utf8)
+            for index in 0...2 {
+                Data(index.description.utf8)
             }
             
             // buildOptional
@@ -52,7 +52,6 @@ final class BodyDataBuilderTests: XCTestCase {
 }
 
 extension BodyDataBuilderTests {
-    
     private func _buildData(@BodyDataBuilder builder: () throws -> Data) rethrows -> Data {
         return try builder()
     }

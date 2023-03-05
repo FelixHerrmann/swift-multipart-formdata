@@ -24,28 +24,23 @@ public struct HTTPHeaderParameter: Hashable {
     }
 }
 
-
 // MARK: - Debug
 
 extension HTTPHeaderParameter: CustomDebugStringConvertible {
-    
     public var debugDescription: String {
         return _text
     }
 }
 
-
 // MARK: - Helpers
 
 extension HTTPHeaderParameter {
-    
     internal var _text: String {
         return "\(name)=\"\(value)\""
     }
 }
 
-extension Array where Element == HTTPHeaderParameter {
-    
+extension Array<HTTPHeaderParameter> {
     internal var _text: String {
         return map(\._text).joined(separator: "; ")
     }

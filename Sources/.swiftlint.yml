@@ -1,0 +1,7 @@
+opt_in_rules:
+    - explicit_acl
+    - explicit_type_interface
+    - fatal_error_message
+
+explicit_type_interface:
+    allow_redundancy: true

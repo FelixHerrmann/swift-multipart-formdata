@@ -19,9 +19,20 @@ final class MultipartFormDataTests: XCTestCase {
     func testHTTPBodyGeneration() throws {
         let boundary = try Boundary(uncheckedBoundary: "test")
         let multipartFormData = MultipartFormData(boundary: boundary, body: [
-            Subpart(contentDisposition: ContentDisposition(name: "text"), body: Data("a".utf8)),
-            Subpart(contentDisposition: ContentDisposition(name: "json"), contentType: ContentType(mediaType: .applicationJson), body: try JSONSerialization.data(withJSONObject: ["a": 1])),
-            Subpart(contentDisposition: ContentDisposition(name: "file", filename: "test.txt"), contentType: ContentType(mediaType: .applicationOctetStream), body: Data()),
+            Subpart(
+                contentDisposition: ContentDisposition(name: "text"),
+                body: Data("a".utf8)
+            ),
+            Subpart(
+                contentDisposition: ContentDisposition(name: "json"),
+                contentType: ContentType(mediaType: .applicationJson),
+                body: try JSONSerialization.data(withJSONObject: ["a": 1])
+            ),
+            Subpart(
+                contentDisposition: ContentDisposition(name: "file", filename: "test.txt"),
+                contentType: ContentType(mediaType: .applicationOctetStream),
+                body: Data()
+            ),
         ])
         
         let expectedBody = Data([
@@ -47,9 +58,20 @@ final class MultipartFormDataTests: XCTestCase {
     func testDebugDescription() throws {
         let boundary = try Boundary(uncheckedBoundary: "test")
         let multipartFormData = MultipartFormData(boundary: boundary, body: [
-            Subpart(contentDisposition: ContentDisposition(name: "text"), body: Data("a".utf8)),
-            Subpart(contentDisposition: ContentDisposition(name: "json"), contentType: ContentType(mediaType: .applicationJson), body: try JSONSerialization.data(withJSONObject: ["a": 1])),
-            Subpart(contentDisposition: ContentDisposition(name: "file", filename: "test.txt"), contentType: ContentType(mediaType: .applicationOctetStream), body: Data()),
+            Subpart(
+                contentDisposition: ContentDisposition(name: "text"),
+                body: Data("a".utf8)
+            ),
+            Subpart(
+                contentDisposition: ContentDisposition(name: "json"),
+                contentType: ContentType(mediaType: .applicationJson),
+                body: try JSONSerialization.data(withJSONObject: ["a": 1])
+            ),
+            Subpart(
+                contentDisposition: ContentDisposition(name: "file", filename: "test.txt"),
+                contentType: ContentType(mediaType: .applicationOctetStream),
+                body: Data()
+            ),
         ])
         
         let expectedDescription = [

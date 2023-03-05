@@ -5,6 +5,8 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
+// swiftlint:disable missing_docs
+
 /// Build the header fields for a ``Subpart``.
 ///
 /// The only allowed combinations of header fields are:
@@ -41,32 +43,28 @@ public enum HTTPHeaderBuilder {
     }
 }
 
-
 // MARK: - Build Errors
 
 extension HTTPHeaderBuilder {
-    
     @available(*, unavailable, message: "Missing a ContentDisposition")
     public static func buildBlock(_ contentType: ContentType) -> BuildResult {
-        fatalError()
+        fatalError("unavailable")
     }
     
     @available(*, unavailable, message: "Only a single ContentDisposition is allowed")
     public static func buildBlock(_ contentDispositions: ContentDisposition...) -> BuildResult {
-        fatalError()
+        fatalError("unavailable")
     }
     
     @available(*, unavailable, message: "Only a single ContentType is allowed")
     public static func buildBlock(_ contentDisposition: ContentDisposition, _ contentTypes: ContentType...) -> BuildResult {
-        fatalError()
+        fatalError("unavailable")
     }
 }
-
 
 // MARK: - Build Result
 
 extension HTTPHeaderBuilder {
-    
     /// The return type of ``HTTPHeaderBuilder``.
     ///
     /// This is just a wrapper around ``ContentDisposition`` + ``ContentType`` and only for internal usage.

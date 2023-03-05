@@ -5,7 +5,8 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
-/// A media type (also known as a **Multipurpose Internet Mail Extensions** or **MIME type**) indicates the nature and format of a document, file, or assortment of bytes.
+/// A media type (also known as a **Multipurpose Internet Mail Extensions** or **MIME type**) indicates the nature and
+/// format of a document, file, or assortment of bytes.
 ///
 /// All available types are listed [here](https://www.iana.org/assignments/media-types/media-types.xhtml).
 ///
@@ -29,11 +30,10 @@ public struct MediaType: Hashable {
     }
 }
 
-
 // MARK: - Convenience Type Properties
 
+// swiftlint:disable missing_docs
 extension MediaType {
-    
     public static let multipartFormData = MediaType(type: "multipart", subtype: "form-data")
     
     public static let textPlain = MediaType(type: "text", subtype: "plain")
@@ -56,27 +56,24 @@ extension MediaType {
     public static let videoWebm = MediaType(type: "video", subtype: "webm")
     public static let videoOgg = MediaType(type: "video", subtype: "ogg")
     
-    public static let applicationOctetStream = MediaType(type: "application",subtype: "octet-stream")
-    public static let applicationXml = MediaType(type: "application",subtype: "xml")
-    public static let applicationJson = MediaType(type: "application",subtype: "json")
+    public static let applicationOctetStream = MediaType(type: "application", subtype: "octet-stream")
+    public static let applicationXml = MediaType(type: "application", subtype: "xml")
+    public static let applicationJson = MediaType(type: "application", subtype: "json")
     public static let applicationJavascript = MediaType(type: "application", subtype: "javascript")
 }
-
+// swiftlint:enable missing_docs
 
 // MARK: - Debug
 
 extension MediaType: CustomDebugStringConvertible {
-    
     public var debugDescription: String {
         return _text
     }
 }
 
-
 // MARK: - Helpers
 
 extension MediaType {
-    
     internal var _text: String {
         return "\(type)/\(subtype)"
     }

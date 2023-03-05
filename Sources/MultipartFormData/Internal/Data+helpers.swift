@@ -8,7 +8,6 @@
 import Foundation
 
 extension Data {
-    
     internal static let _dash = Data("--".utf8)
     internal static let _crlf = Data("\r\n".utf8)
 }

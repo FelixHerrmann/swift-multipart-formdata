@@ -8,14 +8,17 @@ let package = Package(
     products: [
         .library(
             name: "MultipartFormData",
-            targets: ["MultipartFormData"]),
+            targets: ["MultipartFormData"]
+        ),
     ],
     targets: [
         .target(
             name: "MultipartFormData",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "MultipartFormDataTests",
-            dependencies: ["MultipartFormData"]),
+            dependencies: ["MultipartFormData"]
+        ),
     ]
 )

@@ -18,6 +18,7 @@ final class URLRequestTests: XCTestCase {
         let multipartFormData = MultipartFormData(boundary: boundary, body: [
             Subpart(contentDisposition: ContentDisposition(name: "a"), body: Data())
         ])
+        // swiftlint:disable:next force_unwrapping
         let request = URLRequest(url: URL(string: "https://test.com/test")!, multipartFormData: multipartFormData)
         
         XCTAssertEqual(request.httpMethod, "POST")
@@ -34,6 +35,7 @@ final class URLRequestTests: XCTestCase {
     }
     
     func testHeaderField() {
+        // swiftlint:disable:next force_unwrapping
         var request = URLRequest(url: URL(string: "https://test.com/test")!)
         let contentType = ContentType(mediaType: .textPlain, parameters: [HTTPHeaderParameter("test", value: "a")])
         request.updateHeaderField(with: contentType)

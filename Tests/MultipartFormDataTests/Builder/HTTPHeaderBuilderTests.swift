@@ -47,8 +47,9 @@ final class HTTPHeaderBuilderTests: XCTestCase {
 }
 
 extension HTTPHeaderBuilderTests {
-    
-    private func _buildHeader(@HTTPHeaderBuilder builder: () throws -> HTTPHeaderBuilder.BuildResult) rethrows -> HTTPHeaderBuilder.BuildResult {
+    private func _buildHeader(
+        @HTTPHeaderBuilder builder: () throws -> HTTPHeaderBuilder.BuildResult
+    ) rethrows -> HTTPHeaderBuilder.BuildResult {
         return try builder()
     }
 }

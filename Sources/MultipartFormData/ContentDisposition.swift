@@ -10,7 +10,7 @@ import Foundation
 /// A `Content-Disposition` header field of an HTTP request.
 public struct ContentDisposition: HTTPHeaderField {
     
-    public static let name = "Content-Disposition"
+    public static let name: String = "Content-Disposition"
     
     public var value: String {
         return "form-data"
@@ -19,14 +19,11 @@ public struct ContentDisposition: HTTPHeaderField {
     public var parameters: [HTTPHeaderParameter]
 }
 
-
 // MARK: - Percent Encoding
 
 extension ContentDisposition {
-    
     /// Represents an error for a name that can not be percent encoded.
     public struct PercentEncodingError: Error, CustomDebugStringConvertible {
-        
         /// The initial value that could not be percent encoded.
         public var initialValue: String
         
@@ -49,7 +46,7 @@ extension ContentDisposition {
         guard let percentEncodedName = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             throw PercentEncodingError(initialValue: name)
         }
-        if let filename = filename {
+        if let filename: String {
             guard let percentEncodedFilename = filename.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
                 throw PercentEncodingError(initialValue: filename)
             }
@@ -74,6 +71,7 @@ extension ContentDisposition {
     ///   - name: The value for the `name` parameter.
     ///   - filename: The value for the optional `filename` parameter.
     public init(name: StaticString, filename: StaticString? = nil) {
+        // swiftlint:disable:next force_try
         try! self.init(uncheckedName: String(name), uncheckedFilename: filename.map { String($0) })
     }
 }

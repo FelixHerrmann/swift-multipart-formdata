@@ -31,15 +31,13 @@ final class BoundaryTests: XCTestCase {
     
     func testNoAscii() {
         let noAsciiString = "abcdefghijklmnopqrstuvwxyz\u{80}"
-        
-        XCTAssertTrue(noAsciiString.contains(where: { !$0.isASCII }))
+        XCTAssertTrue(noAsciiString.contains { !$0.isASCII })
         XCTAssertThrowsError(try Boundary(uncheckedBoundary: noAsciiString)) { error in
             XCTAssertEqual(error as? Boundary.InvalidBoundaryError, .noASCII)
         }
         
         let asciiString = "abcdefghijklmnopqrstuvwxyz"
-        
-        XCTAssertFalse(asciiString.contains(where: { !$0.isASCII }))
+        XCTAssertFalse(asciiString.contains { !$0.isASCII })
         XCTAssertNoThrow(try Boundary(uncheckedBoundary: asciiString))
     }
     

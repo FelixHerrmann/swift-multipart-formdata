@@ -11,10 +11,10 @@ import FoundationNetworking
 #endif
 
 extension URLRequest {
-    
     /// Creates a `URLRequest` from a ``MultipartFormData``.
     ///
-    /// This initializer will set the `httpMethod` to `"POST"` and configures header and body appropriately for the multipart/form-data.
+    /// This initializer will set the `httpMethod` to `"POST"` and configures header and
+    /// body appropriately for the multipart/form-data.
     ///
     /// - Parameters:
     ///   - url: The URL for the request.
@@ -27,11 +27,9 @@ extension URLRequest {
     }
 }
 
-
 // MARK: - Header Fields
 
 extension URLRequest {
-    
     /// Updates the corresponding header field with a``HTTPHeaderField`` object.
     /// - Parameter headerField: The new header field object.
     public mutating func updateHeaderField<Field: HTTPHeaderField>(with headerField: Field) {

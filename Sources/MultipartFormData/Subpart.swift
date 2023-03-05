@@ -32,17 +32,16 @@ public struct Subpart: Hashable {
     ///   - contentType: The optional content type of the subpart.
     ///   - body: The body of the subpart.
     public init(contentDisposition: ContentDisposition, contentType: ContentType? = nil, body: Data) {
+        // swiftlint:disable:previous function_default_parameter_at_end
         self.contentDisposition = contentDisposition
         self.contentType = contentType
         self.body = body
     }
 }
 
-
 // MARK: - Result Builders
 
 extension Subpart {
-    
     /// Creates a new ``Subpart`` object with result builders.
     ///
     /// The header builder must contain a ``ContentDisposition``, the ``ContentType`` is optional.
@@ -66,31 +65,30 @@ extension Subpart {
     /// - Parameters:
     ///   - header: The result builder for the header.
     ///   - body: The result builder for the body.
-    public init(@HTTPHeaderBuilder header: () throws -> HTTPHeaderBuilder.BuildResult, @BodyDataBuilder body: () throws -> Data) rethrows {
-        let headerFields = try header()
+    public init(
+        @HTTPHeaderBuilder header: () throws -> HTTPHeaderBuilder.BuildResult,
+        @BodyDataBuilder body: () throws -> Data
+    ) rethrows {
+        let headerFields: HTTPHeaderBuilder.BuildResult = try header()
         self.contentDisposition = headerFields._contentDisposition
         self.contentType = headerFields._contentType
         self.body = try body()
     }
 }
 
-
 // MARK: - Debug
 
 extension Subpart: CustomDebugStringConvertible {
-    
     public var debugDescription: String {
         return String(decoding: _data, as: UTF8.self)
     }
 }
 
-
 // MARK: - Helpers
 
 extension Subpart {
-    
     internal var _data: Data {
-        let contentTypeData = contentType.map { $0._data + ._crlf } ?? Data()
+        let contentTypeData: Data = contentType.map { $0._data + ._crlf } ?? Data()
         return contentDisposition._data + ._crlf + contentTypeData + ._crlf + body
     }
 }
