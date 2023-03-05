@@ -20,10 +20,6 @@ public enum MultipartFormDataBuilder {
         return components.flatMap { $0 }
     }
     
-    public static func buildBlock(_ components: Subpart...) -> [Subpart] {
-        return components
-    }
-    
     public static func buildArray(_ components: [[Subpart]]) -> [Subpart] {
         return components.flatMap { $0 }
     }
