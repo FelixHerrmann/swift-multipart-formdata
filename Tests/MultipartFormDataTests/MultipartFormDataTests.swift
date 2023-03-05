@@ -50,7 +50,7 @@ final class MultipartFormDataTests: XCTestCase {
             "Content-Type: application/octet-stream",
             "",
             "",
-            "--test--\r\n"
+            "--test--\r\n",
         ].joined(separator: "\r\n").utf8)
         XCTAssertEqual(multipartFormData.httpBody, expectedBody)
     }
@@ -91,8 +91,25 @@ final class MultipartFormDataTests: XCTestCase {
             "Content-Type: application/octet-stream",
             "",
             "",
-            "--test--\r\n"
+            "--test--\r\n",
         ].joined(separator: "\r\n")
         XCTAssertEqual(multipartFormData.debugDescription, expectedDescription)
+    }
+    
+    func testBuilderInit() throws {
+        let boundary = try Boundary(uncheckedBoundary: "test")
+        let jsonData = try JSONSerialization.data(withJSONObject: ["a": 1])
+        let multipartFormData = MultipartFormData(boundary: boundary) {
+            Subpart {
+                ContentDisposition(name: "json")
+                ContentType(mediaType: .applicationJson)
+            } body: {
+                jsonData
+            }
+        }
+        
+        XCTAssertEqual(multipartFormData.boundary, boundary)
+        XCTAssertEqual(multipartFormData.body.first?.contentType?.mediaType, .applicationJson)
+        XCTAssertEqual(multipartFormData.body.first?.body, jsonData)
     }
 }
