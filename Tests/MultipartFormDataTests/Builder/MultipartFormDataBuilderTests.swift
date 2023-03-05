@@ -50,6 +50,8 @@ final class MultipartFormDataBuilderTests: XCTestCase {
         XCTAssertEqual(subparts, expectedSubparts)
     }
     
+    // swiftlint:disable function_body_length
+    // swiftlint:disable closure_body_length
     func testAllBuildMethods() throws {
         let subparts = try _buildSubparts {
             // buildArray(_:)
@@ -117,6 +119,8 @@ final class MultipartFormDataBuilderTests: XCTestCase {
         ]
         XCTAssertEqual(subparts, expectedSubparts)
     }
+    // swiftlint:enable function_body_length
+    // swiftlint:enable closure_body_length
 }
 
 extension MultipartFormDataBuilderTests {
