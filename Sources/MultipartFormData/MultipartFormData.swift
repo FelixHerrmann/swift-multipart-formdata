@@ -18,8 +18,8 @@ import Foundation
 ///
 /// The ``boundary`` can be created manually but using a randomly generated one is fine in most situations.
 ///
-/// To create a request from ``MultipartFormData`` use ``httpBody`` and configure the `Content-Type` header field appropriately.
-/// There is a dedicated `URLRequest` initializer that handles this configuration.
+/// To create a request from ``MultipartFormData`` use ``httpBody`` and configure the `Content-Type` header
+/// field appropriately. There is a dedicated `URLRequest` initializer that handles this configuration.
 ///
 /// - Note: The ``debugDescription`` is overloaded and will print the form-data request in a human readable format.
 ///
@@ -108,27 +108,23 @@ public struct MultipartFormData: Hashable {
     }
 }
 
-
 // MARK: - HTTP Request
 
 extension MultipartFormData {
-    
     /// The generated body data for the HTTP request.
     ///
     /// This combines all the data from the subparts into one big data object.
     public var httpBody: Data {
-        let bodyData = body
+        let bodyData: Data = body
             .map { ._dash + boundary._asciiData + ._crlf + $0._data + ._crlf }
             .reduce(Data(), +)
         return bodyData + ._dash + boundary._asciiData + ._dash + ._crlf
     }
 }
 
-
 // MARK: - Result Builders
 
 extension MultipartFormData {
-    
     /// Creates a new ``MultipartFormData`` object with a result builder.
     ///
     /// The builder consists of a single or multiple ``Subpart``s.
@@ -162,11 +158,9 @@ extension MultipartFormData {
     }
 }
 
-
 // MARK: - Debug
 
 extension MultipartFormData: CustomDebugStringConvertible {
-    
     public var debugDescription: String {
         return String(decoding: contentType._data + ._crlf + ._crlf + httpBody, as: UTF8.self)
     }

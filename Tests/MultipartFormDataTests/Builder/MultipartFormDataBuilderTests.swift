@@ -54,11 +54,11 @@ final class MultipartFormDataBuilderTests: XCTestCase {
         let subparts = try _buildSubparts {
             
             // buildArray
-            for i in 0...2 {
+            for index in 0...2 {
                 try Subpart {
-                    try ContentDisposition(uncheckedName: i.description)
+                    try ContentDisposition(uncheckedName: index.description)
                 } body: {
-                    Data(i.description.utf8)
+                    Data(index.description.utf8)
                 }
             }
             
@@ -98,7 +98,6 @@ final class MultipartFormDataBuilderTests: XCTestCase {
 }
 
 extension MultipartFormDataBuilderTests {
-    
     private func _buildSubparts(@MultipartFormDataBuilder builder: () throws -> [Subpart]) rethrows -> [Subpart] {
         return try builder()
     }

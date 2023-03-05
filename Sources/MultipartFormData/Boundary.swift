@@ -6,7 +6,7 @@
 //
 
 import Foundation
-   
+
 /// The boundary used by the form data.
 ///
 /// There are 2 ways to create a boundary:
@@ -14,15 +14,12 @@ import Foundation
 /// 2. ``init(uncheckedBoundary:)`` to create one manually.
 ///   In this case an error can be thrown because it checks the required format!
 public struct Boundary: Hashable {
-    
     internal let _asciiData: Data
 }
-
 
 // MARK: - Unchecked Boundary
 
 extension Boundary {
-    
     /// All possible errors from ``init(uncheckedBoundary:)``.
     public enum InvalidBoundaryError: Error, CustomDebugStringConvertible {
         
@@ -52,7 +49,7 @@ extension Boundary {
     ///
     /// 1 byte corresponds to 1 character.
     /// The raw value is `70`.
-    public static let maxSize = 70
+    public static let maxSize: Int = 70
     
     /// Create a boundary manually from a String.
     ///
@@ -75,11 +72,9 @@ extension Boundary {
     }
 }
 
-
 // MARK: - Random Boundary
 
 extension Boundary {
-    
     /// Generates a random boundary with 16 ASCII characters.
     ///
     /// A valid boundary is guaranteed and no error can be thrown.
@@ -94,21 +89,17 @@ extension Boundary {
     }
 }
 
-
 // MARK: - Debug
 
 extension Boundary: CustomDebugStringConvertible {
-    
     public var debugDescription: String {
         return _value
     }
 }
 
-
 // MARK: - Helpers
 
 extension Boundary {
-    
     internal var _value: String {
         return String(decoding: _asciiData, as: UTF8.self) // UTF-8 representation is exactly equivalent to ASCII
     }

@@ -5,11 +5,14 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
+// swiftlint:disable missing_docs
+
 import Foundation
 
 /// Build data for the ``Subpart``'s body.
 ///
-/// The returning object is always a single `Data` instance, it will be combined in the case of multiple `Data` components.
+/// The returning object is always a single `Data` instance, it will be combined in the case of
+/// multiple `Data` components.
 @resultBuilder
 public enum BodyDataBuilder {
     

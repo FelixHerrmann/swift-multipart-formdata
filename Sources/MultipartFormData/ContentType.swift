@@ -5,12 +5,10 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
-import Foundation
-
 /// A `Content-Type` header field of an HTTP request.
 public struct ContentType: HTTPHeaderField {
     
-    public static let name = "Content-Type"
+    public static let name: String = "Content-Type"
     
     public var value: String {
         return mediaType._text
@@ -33,11 +31,9 @@ public struct ContentType: HTTPHeaderField {
     }
 }
 
-
 // MARK: - Helpers
 
 extension ContentType {
-    
     internal init(boundary: Boundary) {
         self.mediaType = .multipartFormData
         self.parameters = [HTTPHeaderParameter("boundary", value: boundary._value)]

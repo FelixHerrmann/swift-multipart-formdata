@@ -5,6 +5,9 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
+// swiftlint:disable missing_docs
+// swiftlint:disable discouraged_optional_collection
+
 /// Build the subparts for a ``MultipartFormData``.
 @resultBuilder
 public enum MultipartFormDataBuilder {
