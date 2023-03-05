@@ -39,9 +39,8 @@ extension HTTPHeaderField {
     internal var _value: String {
         if parameters.isEmpty {
             return value
-        } else {
-            return "\(value); \(parameters._text)"
         }
+        return "\(value); \(parameters._text)"
     }
     
     internal var _text: String {

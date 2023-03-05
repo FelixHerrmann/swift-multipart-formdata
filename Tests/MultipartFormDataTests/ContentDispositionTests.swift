@@ -17,9 +17,8 @@ final class ContentDispositionTests: XCTestCase {
         // does not work on Linux, can still encoding there
         let nonPercentEncodableString = try XCTUnwrap(String(bytes: [0xD8, 0x00] as [UInt8], encoding: .utf16BigEndian))
         if nonPercentEncodableString.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) == nil {
-            XCTAssertThrowsError(
-                try ContentDisposition(uncheckedName: nonPercentEncodableString, uncheckedFilename: nonPercentEncodableString)
-            )
+            XCTAssertThrowsError(try ContentDisposition(uncheckedName: nonPercentEncodableString, uncheckedFilename: nil))
+            XCTAssertThrowsError(try ContentDisposition(uncheckedName: "", uncheckedFilename: nonPercentEncodableString))
         }
     }
     

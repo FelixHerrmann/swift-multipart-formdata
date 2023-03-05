@@ -29,25 +29,34 @@ final class BodyDataBuilderTests: XCTestCase {
     
     func testAllBuildMethods() {
         let data = _buildData {
-            
-            // buildArray
+            // buildArray(_:)
             for index in 0...2 {
                 Data(index.description.utf8)
             }
             
-            // buildOptional
-            if true {
+            // buildOptional(_:)
+            if Bool(truncating: 1) {
                 Data("true".utf8)
             }
+            if Bool(truncating: 0) {
+                Data("false".utf8)
+            }
             
-            // buildEither
-            if .random() {
-                Data("random".utf8)
+            // buildEither(first:)
+            if Bool(truncating: 1) {
+                Data("first".utf8)
             } else {
-                Data("random".utf8)
+                Data("second".utf8)
+            }
+            
+            // buildEither(second:)
+            if Bool(truncating: 0) {
+                Data("first".utf8)
+            } else {
+                Data("second".utf8)
             }
         }
-        XCTAssertEqual(data, Data("012truerandom".utf8))
+        XCTAssertEqual(data, Data("012truefirstsecond".utf8))
     }
 }
 

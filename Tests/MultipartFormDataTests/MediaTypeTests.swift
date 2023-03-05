@@ -14,4 +14,11 @@ final class MediaTypeTests: XCTestCase {
         let mediaType = MediaType(type: "type", subtype: "subtype")
         XCTAssertEqual(mediaType._text, "type/subtype")
     }
+    
+    func testDebugDescription() {
+        let mediaType = MediaType(type: "type", subtype: "subtype")
+        
+        let expectedDescription = "type/subtype"
+        XCTAssertEqual(mediaType.debugDescription, expectedDescription)
+    }
 }
