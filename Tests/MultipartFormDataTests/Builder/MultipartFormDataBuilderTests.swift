@@ -52,8 +52,7 @@ final class MultipartFormDataBuilderTests: XCTestCase {
     
     func testAllBuildMethods() throws {
         let subparts = try _buildSubparts {
-            
-            // buildArray
+            // buildArray(_:)
             for index in 0...2 {
                 try Subpart {
                     try ContentDisposition(uncheckedName: index.description)
@@ -62,8 +61,15 @@ final class MultipartFormDataBuilderTests: XCTestCase {
                 }
             }
             
-            // buildOptional
-            if true {
+            // buildOptional(_:)
+            if Bool(truncating: 1) {
+                Subpart {
+                    ContentDisposition(name: "true")
+                } body: {
+                    Data("true".utf8)
+                }
+            }
+            if Bool(truncating: 0) {
                 Subpart {
                     ContentDisposition(name: "true")
                 } body: {
@@ -71,18 +77,33 @@ final class MultipartFormDataBuilderTests: XCTestCase {
                 }
             }
             
-            // buildEither
-            if .random() {
+            // buildEither(first:)
+            if Bool(truncating: 1) {
                 Subpart {
-                    ContentDisposition(name: "random")
+                    ContentDisposition(name: "first")
                 } body: {
-                    Data("random".utf8)
+                    Data("first".utf8)
                 }
             } else {
                 Subpart {
-                    ContentDisposition(name: "random")
+                    ContentDisposition(name: "second")
                 } body: {
-                    Data("random".utf8)
+                    Data("second".utf8)
+                }
+            }
+            
+            // buildEither(second:)
+            if Bool(truncating: 0) {
+                Subpart {
+                    ContentDisposition(name: "first")
+                } body: {
+                    Data("first".utf8)
+                }
+            } else {
+                Subpart {
+                    ContentDisposition(name: "second")
+                } body: {
+                    Data("second".utf8)
                 }
             }
         }
@@ -91,7 +112,8 @@ final class MultipartFormDataBuilderTests: XCTestCase {
             Subpart(contentDisposition: ContentDisposition(name: "1"), body: Data("1".utf8)),
             Subpart(contentDisposition: ContentDisposition(name: "2"), body: Data("2".utf8)),
             Subpart(contentDisposition: ContentDisposition(name: "true"), body: Data("true".utf8)),
-            Subpart(contentDisposition: ContentDisposition(name: "random"), body: Data("random".utf8)),
+            Subpart(contentDisposition: ContentDisposition(name: "first"), body: Data("first".utf8)),
+            Subpart(contentDisposition: ContentDisposition(name: "second"), body: Data("second".utf8)),
         ]
         XCTAssertEqual(subparts, expectedSubparts)
     }

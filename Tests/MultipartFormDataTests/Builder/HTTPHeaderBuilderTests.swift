@@ -34,15 +34,24 @@ final class HTTPHeaderBuilderTests: XCTestCase {
     
     func testAllBuildMethods() {
         let buildResult = _buildHeader {
-            
-            // buildEither
-            if .random() {
+            // buildEither(first:)
+            if Bool(truncating: 1) {
                 ContentDisposition(name: "a")
             } else {
                 ContentDisposition(name: "a")
             }
         }
         XCTAssertEqual(buildResult._contentDisposition, ContentDisposition(name: "a"))
+        
+        let buildResult2 = _buildHeader {
+            // buildEither(second:)
+            if Bool(truncating: 0) {
+                ContentDisposition(name: "b")
+            } else {
+                ContentDisposition(name: "b")
+            }
+        }
+        XCTAssertEqual(buildResult2._contentDisposition, ContentDisposition(name: "b"))
     }
 }
 
