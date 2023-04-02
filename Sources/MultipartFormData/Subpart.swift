@@ -69,7 +69,7 @@ extension Subpart {
         @HTTPHeaderBuilder header: () throws -> HTTPHeaderBuilder.BuildResult,
         @BodyDataBuilder body: () throws -> Data
     ) rethrows {
-        let headerFields: HTTPHeaderBuilder.BuildResult = try header()
+        let headerFields = try header()
         self.contentDisposition = headerFields._contentDisposition
         self.contentType = headerFields._contentType
         self.body = try body()

@@ -46,7 +46,7 @@ extension ContentDisposition {
         guard let percentEncodedName = name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             throw PercentEncodingError(initialValue: name)
         }
-        if let filename: String {
+        if let filename {
             guard let percentEncodedFilename = filename.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
                 throw PercentEncodingError(initialValue: filename)
             }
