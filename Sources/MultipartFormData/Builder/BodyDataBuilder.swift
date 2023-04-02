@@ -5,8 +5,6 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
-// swiftlint:disable missing_docs
-
 import Foundation
 
 /// Build data for the ``Subpart``'s body.
@@ -15,6 +13,7 @@ import Foundation
 /// multiple `Data` components.
 @resultBuilder
 public enum BodyDataBuilder {
+    // swiftlint:disable missing_docs
     
     public static func buildExpression(_ expression: Data) -> Data {
         return expression
@@ -39,4 +38,5 @@ public enum BodyDataBuilder {
     public static func buildEither(second component: Data) -> Data {
         return component
     }
+    // swiftlint:enable missing_docs
 }

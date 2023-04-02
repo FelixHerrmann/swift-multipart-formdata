@@ -5,12 +5,10 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
-// swiftlint:disable missing_docs
-// swiftlint:disable discouraged_optional_collection
-
 /// Build the subparts for a ``MultipartFormData``.
 @resultBuilder
 public enum MultipartFormDataBuilder {
+    // swiftlint:disable missing_docs
     
     public static func buildExpression(_ expression: Subpart) -> [Subpart] {
         return [expression]
@@ -24,6 +22,7 @@ public enum MultipartFormDataBuilder {
         return components.flatMap { $0 }
     }
     
+    // swiftlint:disable:next discouraged_optional_collection
     public static func buildOptional(_ component: [Subpart]?) -> [Subpart] {
         return component ?? []
     }
@@ -35,4 +34,5 @@ public enum MultipartFormDataBuilder {
     public static func buildEither(second component: [Subpart]) -> [Subpart] {
         return component
     }
+    // swiftlint:enable missing_docs
 }

@@ -5,8 +5,6 @@
 //  Created by Felix Herrmann on 29.12.21.
 //
 
-// swiftlint:disable missing_docs
-
 /// Build the header fields for a ``Subpart``.
 ///
 /// The only allowed combinations of header fields are:
@@ -17,6 +15,7 @@
 /// The returning object is of type ``BuildResult``.
 @resultBuilder
 public enum HTTPHeaderBuilder {
+    // swiftlint:disable missing_docs
     
     public static func buildBlock(_ contentDisposition: ContentDisposition) -> BuildResult {
         return BuildResult(_contentDisposition: contentDisposition, _contentType: nil)
@@ -41,11 +40,14 @@ public enum HTTPHeaderBuilder {
     public static func buildEither(second component: BuildResult) -> BuildResult {
         return component
     }
+    // swiftlint:enable missing_docs
 }
 
 // MARK: - Build Errors
 
 extension HTTPHeaderBuilder {
+    // swiftlint:disable missing_docs
+    
     @available(*, unavailable, message: "Missing a ContentDisposition")
     public static func buildBlock(_ contentType: ContentType) -> BuildResult {
         fatalError("unavailable")
@@ -60,6 +62,7 @@ extension HTTPHeaderBuilder {
     public static func buildBlock(_ contentDisposition: ContentDisposition, _ contentTypes: ContentType...) -> BuildResult {
         fatalError("unavailable")
     }
+    // swiftlint:enable missing_docs
 }
 
 // MARK: - Build Result
