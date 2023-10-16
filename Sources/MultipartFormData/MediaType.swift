@@ -64,6 +64,34 @@ extension MediaType {
 }
 // swiftlint:enable missing_docs
 
+// MARK: - UniformTypeIdentifiers
+
+#if canImport(UniformTypeIdentifiers)
+import UniformTypeIdentifiers
+
+extension MediaType {
+    /// Create a media type from a uniform type.
+    /// - Parameter uniformType: The uniform type (UTType).
+    @available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *)
+    public init?(uniformType: UTType) {
+        guard let mimeTypeSplit = uniformType.preferredMIMEType?.split(separator: "/") else { return nil }
+        guard mimeTypeSplit.count == 2 else { return nil }
+        self.type = String(mimeTypeSplit[0])
+        self.subtype = String(mimeTypeSplit[1])
+    }
+}
+
+@available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *)
+extension UTType {
+    /// Create a uniform type from a media type.
+    /// - Parameter mediaType: The media type.
+    /// - Parameter supertype: Another UTType instance that the resulting type must conform to; for example, UTTypeData.
+    public init?(mediaType: MediaType, conformingTo supertype: UTType = .data) {
+        self.init(mimeType: mediaType._text, conformingTo: supertype)
+    }
+}
+#endif
+
 // MARK: - Debug
 
 extension MediaType: CustomDebugStringConvertible {
