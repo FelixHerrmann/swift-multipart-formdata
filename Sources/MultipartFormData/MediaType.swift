@@ -37,6 +37,7 @@ extension MediaType {
     public static let multipartFormData = MediaType(type: "multipart", subtype: "form-data")
     
     public static let textPlain = MediaType(type: "text", subtype: "plain")
+    public static let textCsv = MediaType(type: "text", subtype: "csv")
     public static let textHtml = MediaType(type: "text", subtype: "html")
     public static let textCss = MediaType(type: "text", subtype: "css")
     
