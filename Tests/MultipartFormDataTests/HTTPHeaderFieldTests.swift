@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class HTTPHeaderFieldTests: XCTestCase {
-    
     func testDebugDescription() {
         let parameter = HTTPHeaderParameter("name", value: "value")
         let testHeaderField = TestHeaderField(value: "value", parameters: [parameter])

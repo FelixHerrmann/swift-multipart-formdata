@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class BoundaryTests: XCTestCase {
-    
     func testEmpty() {
         XCTAssertThrowsError(try Boundary(uncheckedBoundary: "")) { error in
             XCTAssertEqual(error as? Boundary.InvalidBoundaryError, .empty)

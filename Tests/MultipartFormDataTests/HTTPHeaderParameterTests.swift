@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class HTTPHeaderParameterTests: XCTestCase {
-    
     func testArrayText() {
         let singleParameter = [
             HTTPHeaderParameter("test", value: "a")

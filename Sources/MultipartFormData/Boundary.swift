@@ -38,9 +38,12 @@ extension Boundary {
         
         public var debugDescription: String {
             switch self {
-            case .empty: return "Boundary must not be empty."
-            case .tooLong: return "Boundary is too long. Max size is 70 characters."
-            case .noASCII: return "Boundary contains at least one character that is not ASCII compatible."
+            case .empty:
+                return "Boundary must not be empty."
+            case .tooLong:
+                return "Boundary is too long. Max size is 70 characters."
+            case .noASCII:
+                return "Boundary contains at least one character that is not ASCII compatible."
             }
         }
     }

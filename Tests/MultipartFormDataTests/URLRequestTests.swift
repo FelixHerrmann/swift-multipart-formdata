@@ -12,7 +12,6 @@ import FoundationNetworking
 #endif
 
 final class URLRequestTests: XCTestCase {
-    
     func testFormDataInit() throws {
         let boundary = try Boundary(uncheckedBoundary: "test")
         let multipartFormData = MultipartFormData(boundary: boundary, body: [

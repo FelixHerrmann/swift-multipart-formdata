@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class ContentDispositionTests: XCTestCase {
-    
     func testPercentEncodingError() throws {
         XCTAssertNoThrow(try ContentDisposition(uncheckedName: "a", uncheckedFilename: "a"))
         

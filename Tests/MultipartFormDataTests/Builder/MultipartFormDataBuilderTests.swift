@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class MultipartFormDataBuilderTests: XCTestCase {
-    
     func testSingleSubpart() throws {
         let subparts = _buildSubparts {
             Subpart {

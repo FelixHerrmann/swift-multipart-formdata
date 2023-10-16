@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class MultipartFormDataTests: XCTestCase {
-    
     func testContentType() throws {
         let boundary = try Boundary(uncheckedBoundary: "test")
         let multipartFormData = MultipartFormData(boundary: boundary)

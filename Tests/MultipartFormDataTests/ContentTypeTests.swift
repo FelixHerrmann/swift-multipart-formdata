@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class ContentTypeTests: XCTestCase {
-    
     func testBoundaryParameters() throws {
         let contentType = ContentType(boundary: try Boundary(uncheckedBoundary: "test"))
         

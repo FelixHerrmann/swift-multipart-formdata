@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class HTTPHeaderBuilderTests: XCTestCase {
-    
     func testAvailableHeaderCombinations() {
         let dispositionResult = _buildHeader {
             ContentDisposition(name: "a")
