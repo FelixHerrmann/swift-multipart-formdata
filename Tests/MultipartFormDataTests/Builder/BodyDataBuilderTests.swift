@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class BodyDataBuilderTests: XCTestCase {
-    
     func testSingleData() {
         let data = _buildData {
             Data("a".utf8)

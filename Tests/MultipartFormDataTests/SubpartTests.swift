@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class SubpartTests: XCTestCase {
-    
     func testDataGeneration() throws {
         let subpart = Subpart(
             contentDisposition: ContentDisposition(name: "a"),

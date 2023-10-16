@@ -9,7 +9,6 @@ import XCTest
 @testable import MultipartFormData
 
 final class MediaTypeTests: XCTestCase {
-    
     func testText() {
         let mediaType = MediaType(type: "type", subtype: "subtype")
         XCTAssertEqual(mediaType._text, "type/subtype")
