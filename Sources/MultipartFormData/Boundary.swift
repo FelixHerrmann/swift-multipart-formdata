@@ -38,11 +38,11 @@ extension Boundary {
         
         public var debugDescription: String {
             switch self {
-            case .empty: 
+            case .empty:
                 return "Boundary must not be empty."
-            case .tooLong: 
+            case .tooLong:
                 return "Boundary is too long. Max size is 70 characters."
-            case .noASCII: 
+            case .noASCII:
                 return "Boundary contains at least one character that is not ASCII compatible."
             }
         }
