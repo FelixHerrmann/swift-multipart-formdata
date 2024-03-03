@@ -14,7 +14,7 @@ let package = Package(
     targets: [
         .target(
             name: "MultipartFormData",
-            dependencies: []
+            resources: [.process("Resources")]
         ),
         .testTarget(
             name: "MultipartFormDataTests",
