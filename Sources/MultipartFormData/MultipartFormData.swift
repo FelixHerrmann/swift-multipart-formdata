@@ -81,7 +81,7 @@ import Foundation
 /// <<png-data>>
 /// --example-boundary--
 /// ```
-public struct MultipartFormData: Hashable {
+public struct MultipartFormData: Sendable, Hashable {
     
     /// The boundary to separate the subparts of the ``body`` with.
     public let boundary: Boundary

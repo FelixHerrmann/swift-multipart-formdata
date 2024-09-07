@@ -8,7 +8,7 @@
 import Foundation
 
 /// A header field of an HTTP request.
-public protocol HTTPHeaderField: Hashable, CustomDebugStringConvertible {
+public protocol HTTPHeaderField: Sendable, Hashable, CustomDebugStringConvertible {
     
     /// The name of the header field.
     ///

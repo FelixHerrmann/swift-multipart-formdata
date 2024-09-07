@@ -12,7 +12,7 @@
 ///
 /// The most common once's are conveniently available through type properties.
 /// These can also be extended to avoid mistakes.
-public struct MediaType: Hashable {
+public struct MediaType: Sendable, Hashable {
     
     /// The type of media.
     public let type: String

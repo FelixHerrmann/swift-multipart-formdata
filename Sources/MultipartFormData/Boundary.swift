@@ -13,7 +13,7 @@ import Foundation
 /// 1. ``random()`` type method to generate a random one.
 /// 2. ``init(uncheckedBoundary:)`` to create one manually.
 ///   In this case an error can be thrown because it checks the required format!
-public struct Boundary: Hashable {
+public struct Boundary: Sendable, Hashable {
     internal let _asciiData: Data
 }
 
