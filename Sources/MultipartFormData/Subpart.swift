@@ -10,7 +10,7 @@ import Foundation
 /// A subpart of the ``MultipartFormData``'s body.
 ///
 /// This can either be initialized the standard way or via the result builder initializer.
-public struct Subpart: Hashable {
+public struct Subpart: Sendable, Hashable {
     
     /// The content disposition of the subpart.
     public var contentDisposition: ContentDisposition

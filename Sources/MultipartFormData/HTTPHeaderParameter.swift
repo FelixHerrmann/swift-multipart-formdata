@@ -6,7 +6,7 @@
 //
 
 /// A parameter for an ``HTTPHeaderField``.
-public struct HTTPHeaderParameter: Hashable {
+public struct HTTPHeaderParameter: Sendable, Hashable {
     
     /// The name of the parameter.
     public var name: String
