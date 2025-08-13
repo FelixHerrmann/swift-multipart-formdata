@@ -80,7 +80,7 @@ extension Subpart {
 
 extension Subpart: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return String(decoding: _data, as: UTF8.self)
+        return String(bytes: _data, encoding: .utf8) ?? ""
     }
 }
 
