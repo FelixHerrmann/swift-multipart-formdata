@@ -104,6 +104,6 @@ extension Boundary: CustomDebugStringConvertible {
 
 extension Boundary {
     internal var _value: String {
-        return String(decoding: _asciiData, as: UTF8.self) // UTF-8 representation is exactly equivalent to ASCII
+        return String(bytes: _asciiData, encoding: .ascii) ?? ""
     }
 }

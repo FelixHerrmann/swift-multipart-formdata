@@ -7,6 +7,7 @@
 
 extension String {
     internal init(_ staticString: StaticString) {
+        // swiftlint:disable:next optional_data_string_conversion
         self = staticString.withUTF8Buffer { String(decoding: $0, as: UTF8.self) }
     }
 }
