@@ -29,7 +29,7 @@ public protocol HTTPHeaderField: Sendable, Hashable, CustomDebugStringConvertibl
 extension HTTPHeaderField {
     /// A textual representation of this instance, suitable for debugging.
     public var debugDescription: String {
-        return _text
+        return rawValue
     }
 }
 
@@ -42,11 +42,12 @@ extension HTTPHeaderField {
         return "\(value); \(parameters._text)"
     }
     
-    internal var _text: String {
+    /// The raw string representation of a header field.
+    public var rawValue: String {
         return "\(Self.name): \(parameterizedValue)"
     }
     
     internal var _data: Data {
-        return Data(_text.utf8)
+        return Data(rawValue.utf8)
     }
 }
