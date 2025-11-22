@@ -28,20 +28,21 @@ public struct HTTPHeaderParameter: Sendable, Hashable {
 
 extension HTTPHeaderParameter: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return _text
+        return rawValue
     }
 }
 
 // MARK: - Helpers
 
 extension HTTPHeaderParameter {
-    internal var _text: String {
+    /// The raw string representation of a header parameter.
+    public var rawValue: String {
         return "\(name)=\"\(value)\""
     }
 }
 
 extension Array<HTTPHeaderParameter> {
     internal var _text: String {
-        return map(\._text).joined(separator: "; ")
+        return map(\.rawValue).joined(separator: "; ")
     }
 }
