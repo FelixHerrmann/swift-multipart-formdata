@@ -36,6 +36,6 @@ public struct ContentType: HTTPHeaderField {
 extension ContentType {
     internal init(boundary: Boundary) {
         self.mediaType = .multipartFormData
-        self.parameters = [HTTPHeaderParameter("boundary", value: boundary._value)]
+        self.parameters = [HTTPHeaderParameter("boundary", value: boundary.rawValue)]
     }
 }

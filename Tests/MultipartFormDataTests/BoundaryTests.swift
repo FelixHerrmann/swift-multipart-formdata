@@ -45,7 +45,7 @@ final class BoundaryTests: XCTestCase {
             let randomBoundary = Boundary.random()
             let asciiString = String(data: randomBoundary._asciiData, encoding: .ascii)
             XCTAssertNotNil(asciiString)
-            XCTAssertEqual(asciiString, randomBoundary._value)
+            XCTAssertEqual(asciiString, randomBoundary.rawValue)
         }
     }
     
