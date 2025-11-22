@@ -162,7 +162,7 @@ extension MultipartFormData {
 
 extension MultipartFormData: CustomDebugStringConvertible {
     public var debugDescription: String {
-        let bytes: Data = contentType._data + ._crlf + ._crlf + httpBody
+        let bytes: Data = contentType.data + ._crlf + ._crlf + httpBody
         return String(bytes: bytes, encoding: .utf8) ?? ""
     }
 }

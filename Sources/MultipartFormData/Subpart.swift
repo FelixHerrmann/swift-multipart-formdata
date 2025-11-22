@@ -88,7 +88,7 @@ extension Subpart: CustomDebugStringConvertible {
 
 extension Subpart {
     internal var _data: Data {
-        let contentTypeData: Data = contentType.map { $0._data + ._crlf } ?? Data()
-        return contentDisposition._data + ._crlf + contentTypeData + ._crlf + body
+        let contentTypeData: Data = contentType.map { $0.data + ._crlf } ?? Data()
+        return contentDisposition.data + ._crlf + contentTypeData + ._crlf + body
     }
 }

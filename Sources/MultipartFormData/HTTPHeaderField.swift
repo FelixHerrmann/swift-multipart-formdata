@@ -47,7 +47,8 @@ extension HTTPHeaderField {
         return "\(Self.name): \(parameterizedValue)"
     }
     
-    internal var _data: Data {
+    /// The data representation of a header field.
+    public var data: Data {
         return Data(rawValue.utf8)
     }
 }

@@ -12,7 +12,7 @@ final class MultipartFormDataTests: XCTestCase {
     func testContentType() throws {
         let boundary = try Boundary(uncheckedBoundary: "test")
         let multipartFormData = MultipartFormData(boundary: boundary)
-        XCTAssertEqual(multipartFormData.contentType._data, Data("Content-Type: multipart/form-data; boundary=\"test\"".utf8))
+        XCTAssertEqual(multipartFormData.contentType.data, Data("Content-Type: multipart/form-data; boundary=\"test\"".utf8))
     }
     
     func testHTTPBodyGeneration() throws {
