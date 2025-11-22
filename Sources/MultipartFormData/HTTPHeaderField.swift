@@ -36,15 +36,14 @@ extension HTTPHeaderField {
 // MARK: - Helpers
 
 extension HTTPHeaderField {
-    internal var _value: String {
-        if parameters.isEmpty {
-            return value
-        }
+    /// The actual header field value resulting from ``value`` and ``parameters``.
+    public var parameterizedValue: String {
+        if parameters.isEmpty { return value }
         return "\(value); \(parameters._text)"
     }
     
     internal var _text: String {
-        return "\(Self.name): \(_value)"
+        return "\(Self.name): \(parameterizedValue)"
     }
     
     internal var _data: Data {
