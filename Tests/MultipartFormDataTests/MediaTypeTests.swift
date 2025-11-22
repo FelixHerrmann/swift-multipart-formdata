@@ -12,14 +12,13 @@ import UniformTypeIdentifiers
 @testable import MultipartFormData
 
 final class MediaTypeTests: XCTestCase {
-    func testText() {
+    func testRawValue() {
         let mediaType = MediaType(type: "type", subtype: "subtype")
-        XCTAssertEqual(mediaType._text, "type/subtype")
+        XCTAssertEqual(mediaType.rawValue, "type/subtype")
     }
     
     func testDebugDescription() {
         let mediaType = MediaType(type: "type", subtype: "subtype")
-        
         let expectedDescription = "type/subtype"
         XCTAssertEqual(mediaType.debugDescription, expectedDescription)
     }
@@ -29,14 +28,12 @@ final class MediaTypeTests: XCTestCase {
     func testFromUTTypeConversion() throws {
         let uniformType = try XCTUnwrap(UTType("public.comma-separated-values-text"))
         let mediaType = try XCTUnwrap(MediaType(uniformType: uniformType))
-        
         XCTAssertEqual(mediaType, .textCsv)
     }
     
     @available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *)
     func testToUTTypeConversion() throws {
         let uniformType = try XCTUnwrap(UTType(mediaType: .applicationJson))
-        
         XCTAssertEqual(uniformType.identifier, "public.json")
     }
 #endif

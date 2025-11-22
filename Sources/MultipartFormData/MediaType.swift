@@ -87,7 +87,7 @@ extension UTType {
     /// - Parameter mediaType: The media type.
     /// - Parameter supertype: Another UTType instance that the resulting type must conform to; for example, UTTypeData.
     public init?(mediaType: MediaType, conformingTo supertype: UTType = .data) {
-        self.init(mimeType: mediaType._text, conformingTo: supertype)
+        self.init(mimeType: mediaType.rawValue, conformingTo: supertype)
     }
 }
 #endif
@@ -96,14 +96,15 @@ extension UTType {
 
 extension MediaType: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return _text
+        return rawValue
     }
 }
 
 // MARK: - Helpers
 
 extension MediaType {
-    internal var _text: String {
+    /// The raw string representation of a media type.
+    public var rawValue: String {
         return "\(type)/\(subtype)"
     }
 }
