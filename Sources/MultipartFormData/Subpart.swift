@@ -80,14 +80,15 @@ extension Subpart {
 
 extension Subpart: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return String(bytes: _data, encoding: .utf8) ?? ""
+        return String(bytes: data, encoding: .utf8) ?? ""
     }
 }
 
 // MARK: - Helpers
 
 extension Subpart {
-    internal var _data: Data {
+    /// The data representation of a subpart.
+    public var data: Data {
         let contentTypeData: Data = contentType.map { $0.data + ._crlf } ?? Data()
         return contentDisposition.data + ._crlf + contentTypeData + ._crlf + body
     }

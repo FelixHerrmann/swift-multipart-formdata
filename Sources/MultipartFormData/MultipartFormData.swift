@@ -116,7 +116,7 @@ extension MultipartFormData {
     /// This combines all the data from the subparts into one big data object.
     public var httpBody: Data {
         let bodyData: Data = body
-            .map { ._dash + boundary._asciiData + ._crlf + $0._data + ._crlf }
+            .map { ._dash + boundary._asciiData + ._crlf + $0.data + ._crlf }
             .reduce(Data(), +)
         return bodyData + ._dash + boundary._asciiData + ._dash + ._crlf
     }

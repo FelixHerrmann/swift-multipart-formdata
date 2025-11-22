@@ -21,7 +21,7 @@ final class SubpartTests: XCTestCase {
             "",
             "a",
         ].joined(separator: "\r\n").utf8)
-        XCTAssertEqual(subpart._data, expectedData)
+        XCTAssertEqual(subpart.data, expectedData)
     }
     
     func testDebugDescription() {
