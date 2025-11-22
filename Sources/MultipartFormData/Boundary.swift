@@ -92,7 +92,7 @@ extension Boundary {
     }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension Boundary: CustomDebugStringConvertible {
     public var debugDescription: String {
@@ -100,7 +100,7 @@ extension Boundary: CustomDebugStringConvertible {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension Boundary {
     /// The raw string representation of a boundary.

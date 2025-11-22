@@ -158,7 +158,7 @@ extension MultipartFormData {
     }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension MultipartFormData: CustomDebugStringConvertible {
     public var debugDescription: String {

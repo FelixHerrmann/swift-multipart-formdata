@@ -24,7 +24,7 @@ public struct HTTPHeaderParameter: Sendable, Hashable {
     }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension HTTPHeaderParameter: CustomDebugStringConvertible {
     public var debugDescription: String {
@@ -32,7 +32,7 @@ extension HTTPHeaderParameter: CustomDebugStringConvertible {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension HTTPHeaderParameter {
     /// The raw string representation of a header parameter.

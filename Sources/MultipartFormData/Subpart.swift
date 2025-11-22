@@ -76,7 +76,7 @@ extension Subpart {
     }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension Subpart: CustomDebugStringConvertible {
     public var debugDescription: String {
@@ -84,7 +84,7 @@ extension Subpart: CustomDebugStringConvertible {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension Subpart {
     /// The data representation of a subpart.

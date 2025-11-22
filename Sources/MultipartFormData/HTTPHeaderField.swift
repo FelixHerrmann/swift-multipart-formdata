@@ -24,7 +24,7 @@ public protocol HTTPHeaderField: Sendable, Hashable, CustomDebugStringConvertibl
     var parameters: [HTTPHeaderParameter] { get set }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension HTTPHeaderField {
     /// A textual representation of this instance, suitable for debugging.
@@ -33,7 +33,7 @@ extension HTTPHeaderField {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension HTTPHeaderField {
     /// The actual header field value resulting from ``value`` and ``parameters``.

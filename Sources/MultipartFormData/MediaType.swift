@@ -92,7 +92,7 @@ extension UTType {
 }
 #endif
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension MediaType: CustomDebugStringConvertible {
     public var debugDescription: String {
@@ -100,7 +100,7 @@ extension MediaType: CustomDebugStringConvertible {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension MediaType {
     /// The raw string representation of a media type.
