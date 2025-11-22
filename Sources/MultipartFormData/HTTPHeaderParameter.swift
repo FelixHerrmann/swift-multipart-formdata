@@ -42,7 +42,8 @@ extension HTTPHeaderParameter {
 }
 
 extension Array<HTTPHeaderParameter> {
-    internal var _text: String {
+    /// The raw string representation of multiple header parameters.
+    public var rawValue: String {
         return map(\.rawValue).joined(separator: "; ")
     }
 }

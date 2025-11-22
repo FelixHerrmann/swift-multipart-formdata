@@ -39,7 +39,7 @@ extension HTTPHeaderField {
     /// The actual header field value resulting from ``value`` and ``parameters``.
     public var parameterizedValue: String {
         if parameters.isEmpty { return value }
-        return "\(value); \(parameters._text)"
+        return "\(value); \(parameters.rawValue)"
     }
     
     /// The raw string representation of a header field.
