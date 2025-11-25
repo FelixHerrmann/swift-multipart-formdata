@@ -39,6 +39,6 @@ final class ContentDispositionTests: XCTestCase {
     
     func testData() throws {
         let contentDisposition = ContentDisposition(name: "a", filename: "a")
-        XCTAssertEqual(contentDisposition._data, Data("Content-Disposition: form-data; name=\"a\"; filename=\"a\"".utf8))
+        XCTAssertEqual(contentDisposition.data, Data("Content-Disposition: form-data; name=\"a\"; filename=\"a\"".utf8))
     }
 }

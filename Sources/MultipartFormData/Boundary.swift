@@ -92,18 +92,19 @@ extension Boundary {
     }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension Boundary: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return _value
+        return rawValue
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension Boundary {
-    internal var _value: String {
+    /// The raw string representation of a boundary.
+    public var rawValue: String {
         return String(bytes: _asciiData, encoding: .ascii) ?? ""
     }
 }

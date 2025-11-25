@@ -11,7 +11,7 @@ public struct ContentType: HTTPHeaderField {
     public static let name: String = "Content-Type"
     
     public var value: String {
-        return mediaType._text
+        return mediaType.rawValue
     }
     
     /// The media type (MIME type) of the content type.
@@ -36,6 +36,6 @@ public struct ContentType: HTTPHeaderField {
 extension ContentType {
     internal init(boundary: Boundary) {
         self.mediaType = .multipartFormData
-        self.parameters = [HTTPHeaderParameter("boundary", value: boundary._value)]
+        self.parameters = [HTTPHeaderParameter("boundary", value: boundary.rawValue)]
     }
 }

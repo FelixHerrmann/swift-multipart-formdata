@@ -24,24 +24,26 @@ public struct HTTPHeaderParameter: Sendable, Hashable {
     }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension HTTPHeaderParameter: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return _text
+        return rawValue
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension HTTPHeaderParameter {
-    internal var _text: String {
+    /// The raw string representation of a header parameter.
+    public var rawValue: String {
         return "\(name)=\"\(value)\""
     }
 }
 
 extension Array<HTTPHeaderParameter> {
-    internal var _text: String {
-        return map(\._text).joined(separator: "; ")
+    /// The raw string representation of multiple header parameters.
+    public var rawValue: String {
+        return map(\.rawValue).joined(separator: "; ")
     }
 }

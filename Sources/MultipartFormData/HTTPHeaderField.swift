@@ -24,30 +24,31 @@ public protocol HTTPHeaderField: Sendable, Hashable, CustomDebugStringConvertibl
     var parameters: [HTTPHeaderParameter] { get set }
 }
 
-// MARK: - Debug
+// MARK: - CustomDebugStringConvertible
 
 extension HTTPHeaderField {
     /// A textual representation of this instance, suitable for debugging.
     public var debugDescription: String {
-        return _text
+        return rawValue
     }
 }
 
-// MARK: - Helpers
+// MARK: - Data
 
 extension HTTPHeaderField {
-    internal var _value: String {
-        if parameters.isEmpty {
-            return value
-        }
-        return "\(value); \(parameters._text)"
+    /// The actual header field value resulting from ``value`` and ``parameters``.
+    public var parameterizedValue: String {
+        if parameters.isEmpty { return value }
+        return "\(value); \(parameters.rawValue)"
     }
     
-    internal var _text: String {
-        return "\(Self.name): \(_value)"
+    /// The raw string representation of a header field.
+    public var rawValue: String {
+        return "\(Self.name): \(parameterizedValue)"
     }
     
-    internal var _data: Data {
-        return Data(_text.utf8)
+    /// The data representation of a header field.
+    public var data: Data {
+        return Data(rawValue.utf8)
     }
 }

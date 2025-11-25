@@ -33,6 +33,6 @@ extension URLRequest {
     /// Updates the corresponding header field with a``HTTPHeaderField`` object.
     /// - Parameter headerField: The new header field object.
     public mutating func updateHeaderField<Field: HTTPHeaderField>(with headerField: Field) {
-        setValue(headerField._value, forHTTPHeaderField: Field.name)
+        setValue(headerField.parameterizedValue, forHTTPHeaderField: Field.name)
     }
 }
