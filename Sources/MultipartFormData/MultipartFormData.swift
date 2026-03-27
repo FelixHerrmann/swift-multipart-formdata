@@ -115,10 +115,19 @@ extension MultipartFormData {
     ///
     /// This combines all the data from the subparts into one big data object.
     public var httpBody: Data {
-        let bodyData: Data = body
-            .map { ._dash + boundary._asciiData + ._crlf + $0.data + ._crlf }
-            .reduce(Data(), +)
-        return bodyData + ._dash + boundary._asciiData + ._dash + ._crlf
+        var data = Data()
+        for subpart in body {
+            data.append(._dash)
+            data.append(boundary._asciiData)
+            data.append(._crlf)
+            data.append(subpart.data)
+            data.append(._crlf)
+        }
+        data.append(._dash)
+        data.append(boundary._asciiData)
+        data.append(._dash)
+        data.append(._crlf)
+        return data
     }
 }
 
@@ -162,7 +171,11 @@ extension MultipartFormData {
 
 extension MultipartFormData: CustomDebugStringConvertible {
     public var debugDescription: String {
-        let bytes: Data = contentType.data + ._crlf + ._crlf + httpBody
-        return String(bytes: bytes, encoding: .utf8) ?? ""
+        var data = Data()
+        data.append(contentType.data)
+        data.append(._crlf)
+        data.append(._crlf)
+        data.append(httpBody)
+        return String(bytes: data, encoding: .utf8) ?? ""
     }
 }
